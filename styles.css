@@ -1,4 +1,4 @@
-/* Samma stil som tidigare (förkortad för utrymme) */
+/* Stil enligt tidigare build (kortad) */
 :root{--bg:#0b1220;--card:#111827cc;--text:#e5e7eb;--muted:#9ca3af;--primary:#22d3ee;--danger:#ef4444;--success:#10b981;--ghost:#374151;--border:#1f2937}
 *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:radial-gradient(1200px 600px at 0% 0%,#0b1220 0%,#060a14 60%),radial-gradient(800px 400px at 100% 0%,#0e1a2f 0%,transparent 60%),radial-gradient(600px 300px at 100% 100%,#091020 0%,transparent 60%);background-color:var(--bg)}
 .app-header,.app-footer{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}.app-footer{border-top:1px solid var(--border);border-bottom:none}
@@ -15,6 +15,5 @@ button{padding:10px 12px;cursor:pointer}button.primary{background:linear-gradien
 .list{list-style:none;padding:0;margin:12px 0 0}.item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#0c1426}.item+.item{margin-top:8px}.item .title{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.item .name{font-weight:600}.item .amount{color:var(--primary);font-weight:700}.item .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}.item .item-actions{display:flex;gap:8px;align-items:center}
 .status.badge{background:#102a23;color:#a7f3d0}.status.badge.unpaid{background:#231010;color:#fecaca}.category.badge{background:#182235;color:#bfdbfe}
 .import .button{display:inline-block;padding:10px 12px;border:1px solid var(--border);background:#0b1220;color:var(--text);border-radius:10px;cursor:pointer}
-/* PIN overlay */.lock-overlay{position:fixed;inset:0;background:#000000c0;display:grid;place-items:center;z-index:1000}.lock-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;width:min(92vw,380px)}.lock-card input{width:100%}
 @media (max-width:640px){.grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr}}
 .light{--bg:#f1f5f9;--card:#ffffffee;--text:#0f172a;--muted:#475569;--primary:#0ea5e9;--danger:#ef4444;--success:#10b981;--ghost:#e2e8f0;--border:#e5e7eb}

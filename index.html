@@ -10,19 +10,6 @@
   <link rel="icon" href="icons/icon-192.png" sizes="192x192" />
 </head>
 <body>
-  <div id="lock-overlay" class="lock-overlay">
-    <div class="lock-card">
-      <h2>🔒 Ange PIN</h2>
-      <p>Appen är låst. Skriv in din 4–8‑siffriga PIN för att låsa upp (default: 0000).</p>
-      <input id="pin-input" type="password" inputmode="numeric" minlength="4" maxlength="8" placeholder="••••" />
-      <div class="row">
-        <button id="pin-unlock" class="primary">Lås upp</button>
-        <button id="pin-reset" class="ghost">Glömt PIN?</button>
-      </div>
-      <small class="muted">PIN lagras lokalt och kan återställas via Rensa data.</small>
-    </div>
-  </div>
-
   <header class="app-header">
     <div class="branding">
       <div class="logo">💸</div>
@@ -110,7 +97,6 @@
     <form method="dialog" class="settings">
       <h2>Inställningar</h2>
       <section><h3>Påminnelser</h3><label class="row"><input type="checkbox" id="reminders-enabled" /><span>Aktivera påminnelser för obetalda skulder</span></label><label>Dagar innan påminnelse<input type="number" id="reminder-days" min="1" max="365" value="14" /></label><button id="request-permission" type="button" class="ghost">Tillåt notiser</button></section>
-      <section><h3>PIN‑lås</h3><div class="row"><input type="password" id="pin-new" placeholder="Ny PIN (4–8 siffror)" minlength="4" maxlength="8" /><button id="pin-set" type="button" class="primary">Sätt/Ändra PIN</button></div><button id="pin-remove" type="button" class="ghost">Ta bort PIN</button></section>
       <section><h3>Data</h3><button id="clear-data" type="button" class="danger">Rensa all lokal data</button></section>
       <div class="right"><button value="cancel" class="ghost">Stäng</button></div>
     </form>

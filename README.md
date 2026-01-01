@@ -1,5 +1,3 @@
-# SkuldKoll (PWA) – Default-PIN 0000
+# SkuldKoll (PWA) – ingen PIN
 
-Denna build har **PIN-lås aktiverat från start** med default-PIN **0000**. Ändra PIN under **Inställningar → PIN‑lås**.
-
-Övrigt: per person-summering, påminnelser (lokalt), kategorier, export/import, PWA/offline. Ingen geolokalisering.
+Denna build **har inte PIN-lås**. Övriga funktioner: per person-summering, lokala påminnelser, kategorier, export/import, PWA/offline.

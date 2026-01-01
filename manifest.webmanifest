@@ -1,7 +1,7 @@
 {
   "name": "SkuldKoll",
   "short_name": "SkuldKoll",
-  "description": "PWA för skulder – per person-summering, påminnelser, kategorier, PIN-lås (default 0000).",
+  "description": "PWA för skulder – per person-summering, påminnelser, kategorier, export/import.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
