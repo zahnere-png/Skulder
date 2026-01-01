@@ -1,7 +1,7 @@
 {
   "name": "SkuldKoll",
   "short_name": "SkuldKoll",
-  "description": "PWA för att logga skulder med person, belopp, datum, tid, kategori, plats och anteckning. Per person-summering, påminnelser, PIN-lås.",
+  "description": "PWA för skulder – per person-summering, påminnelser, kategorier, PIN-lås (default 0000).",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

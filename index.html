@@ -10,10 +10,10 @@
   <link rel="icon" href="icons/icon-192.png" sizes="192x192" />
 </head>
 <body>
-  <div id="lock-overlay" class="lock-overlay" hidden>
+  <div id="lock-overlay" class="lock-overlay">
     <div class="lock-card">
       <h2>🔒 Ange PIN</h2>
-      <p>Denna app är låst. Skriv in din 4–8-siffriga PIN för att låsa upp.</p>
+      <p>Appen är låst. Skriv in din 4–8‑siffriga PIN för att låsa upp (default: 0000).</p>
       <input id="pin-input" type="password" inputmode="numeric" minlength="4" maxlength="8" placeholder="••••" />
       <div class="row">
         <button id="pin-unlock" class="primary">Lås upp</button>
@@ -40,78 +40,35 @@
   </header>
 
   <main class="container">
-    <!-- Formulär -->
     <section class="card">
       <h2>Ny skuld</h2>
       <form id="debt-form">
         <div class="grid">
-          <label>
-            Person
-            <input type="text" id="debtor" placeholder="Namn eller kontakt" required />
-          </label>
-          <label>
-            Belopp (kr)
-            <input type="number" id="amount" step="0.01" min="0" placeholder="0.00" required />
-          </label>
-          <label>
-            Datum
-            <input type="date" id="date" required />
-          </label>
-          <label>
-            Tid
-            <input type="time" id="time" required />
-          </label>
-          <label>
-            Kategori
+          <label>Person<input type="text" id="debtor" required placeholder="Namn eller kontakt" /></label>
+          <label>Belopp (kr)<input type="number" id="amount" step="0.01" min="0" required placeholder="0.00" /></label>
+          <label>Datum<input type="date" id="date" required /></label>
+          <label>Tid<input type="time" id="time" required /></label>
+          <label>Kategori
             <select id="category">
-              <option value="Annat">Annat</option>
-              <option value="Lunch/Fika">Lunch/Fika</option>
-              <option value="Bränsle">Bränsle</option>
-              <option value="Verktyg/Lån">Verktyg/Lån</option>
-              <option value="Hyra">Hyra</option>
+              <option>Annat</option><option>Lunch/Fika</option><option>Bränsle</option><option>Verktyg/Lån</option><option>Hyra</option>
             </select>
           </label>
-          <label>
-            Plats
-            <input type="text" id="place" placeholder="Ex: Hemma, På jobbet, ICA..." />
-          </label>
-          <label class="full">
-            Anteckning
-            <textarea id="note" rows="2" placeholder="Kort beskrivning (valfritt)"></textarea>
-          </label>
+          <label>Plats<input type="text" id="place" placeholder="Ex: Hemma, På jobbet, ICA..." /></label>
+          <label class="full">Anteckning<textarea id="note" rows="2" placeholder="Kort beskrivning (valfritt)"></textarea></label>
         </div>
-
         <div class="form-actions">
-          <label class="switch">
-            <input type="checkbox" id="status" />
-            <span>Markera som betald</span>
-          </label>
-          <div class="right">
-            <button type="reset" class="ghost">Rensa</button>
-            <button type="submit" class="primary">Lägg till</button>
-          </div>
+          <label class="switch"><input type="checkbox" id="status" /><span>Markera som betald</span></label>
+          <div class="right"><button type="reset" class="ghost">Rensa</button><button type="submit" class="primary">Lägg till</button></div>
         </div>
       </form>
     </section>
 
-    <!-- Filter & summering -->
     <section class="card">
       <div class="toolbar">
         <div class="filters">
           <input type="search" id="search" placeholder="Sök (person, plats, anteckning)" />
-          <select id="filter-status">
-            <option value="all">Alla</option>
-            <option value="unpaid">Obetalda</option>
-            <option value="paid">Betalda</option>
-          </select>
-          <select id="filter-category">
-            <option value="all">Alla kategorier</option>
-            <option value="Annat">Annat</option>
-            <option value="Lunch/Fika">Lunch/Fika</option>
-            <option value="Bränsle">Bränsle</option>
-            <option value="Verktyg/Lån">Verktyg/Lån</option>
-            <option value="Hyra">Hyra</option>
-          </select>
+          <select id="filter-status"><option value="all">Alla</option><option value="unpaid">Obetalda</option><option value="paid">Betalda</option></select>
+          <select id="filter-category"><option value="all">Alla kategorier</option><option>Annat</option><option>Lunch/Fika</option><option>Bränsle</option><option>Verktyg/Lån</option><option>Hyra</option></select>
           <select id="sort-by">
             <option value="date_desc">Senaste datum först</option>
             <option value="date_asc">Tidigaste datum först</option>
@@ -124,10 +81,7 @@
         <div class="export-buttons">
           <button id="export-json">Exportera JSON</button>
           <button id="export-csv">Exportera CSV</button>
-          <label class="import">
-            <input type="file" id="import-file" accept=".json,.csv" hidden />
-            <span class="button">Importera</span>
-          </label>
+          <label class="import"><input type="file" id="import-file" accept=".json,.csv" hidden /><span class="button">Importera</span></label>
         </div>
       </div>
 
@@ -146,63 +100,19 @@
     </section>
   </main>
 
-  <footer class="app-footer">
-    <small>Byggd som PWA. Data lagras lokalt i din webbläsare.</small>
-  </footer>
+  <footer class="app-footer"><small>Byggd som PWA. Data lagras lokalt i din webbläsare.</small></footer>
 
   <template id="debt-item-template">
-    <li class="item">
-      <div class="item-main">
-        <div class="title">
-          <span class="name"></span>
-          <span class="amount"></span>
-        </div>
-        <div class="meta">
-          <span class="status badge"></span>
-          <span class="category badge"></span>
-          <span class="datetime"></span>
-          <span class="place"></span>
-          <span class="note"></span>
-        </div>
-      </div>
-      <div class="item-actions">
-        <button class="mark-paid">Markera betald</button>
-        <button class="edit ghost">Redigera</button>
-        <button class="delete danger">Ta bort</button>
-      </div>
-    </li>
+    <li class="item"><div class="item-main"><div class="title"><span class="name"></span><span class="amount"></span></div><div class="meta"><span class="status badge"></span><span class="category badge"></span><span class="datetime"></span><span class="place"></span><span class="note"></span></div></div><div class="item-actions"><button class="mark-paid">Markera betald</button><button class="edit ghost">Redigera</button><button class="delete danger">Ta bort</button></div></li>
   </template>
 
   <dialog id="settings-dialog">
     <form method="dialog" class="settings">
       <h2>Inställningar</h2>
-      <section>
-        <h3>Påminnelser</h3>
-        <label class="row">
-          <input type="checkbox" id="reminders-enabled" />
-          <span>Aktivera påminnelser för obetalda skulder</span>
-        </label>
-        <label>
-          Dagar innan påminnelse
-          <input type="number" id="reminder-days" min="1" max="365" value="14" />
-        </label>
-        <button id="request-permission" type="button" class="ghost">Tillåt notiser</button>
-      </section>
-      <section>
-        <h3>PIN-lås</h3>
-        <div class="row">
-          <input type="password" id="pin-new" placeholder="Ny PIN (4–8 siffror)" minlength="4" maxlength="8" />
-          <button id="pin-set" type="button" class="primary">Sätt/Ändra PIN</button>
-        </div>
-        <button id="pin-remove" type="button" class="ghost">Ta bort PIN</button>
-      </section>
-      <section>
-        <h3>Data</h3>
-        <button id="clear-data" type="button" class="danger">Rensa all lokal data</button>
-      </section>
-      <div class="right">
-        <button value="cancel" class="ghost">Stäng</button>
-      </div>
+      <section><h3>Påminnelser</h3><label class="row"><input type="checkbox" id="reminders-enabled" /><span>Aktivera påminnelser för obetalda skulder</span></label><label>Dagar innan påminnelse<input type="number" id="reminder-days" min="1" max="365" value="14" /></label><button id="request-permission" type="button" class="ghost">Tillåt notiser</button></section>
+      <section><h3>PIN‑lås</h3><div class="row"><input type="password" id="pin-new" placeholder="Ny PIN (4–8 siffror)" minlength="4" maxlength="8" /><button id="pin-set" type="button" class="primary">Sätt/Ändra PIN</button></div><button id="pin-remove" type="button" class="ghost">Ta bort PIN</button></section>
+      <section><h3>Data</h3><button id="clear-data" type="button" class="danger">Rensa all lokal data</button></section>
+      <div class="right"><button value="cancel" class="ghost">Stäng</button></div>
     </form>
   </dialog>
 
